@@ -1,9 +1,9 @@
 # HW1
 ---
-＃ ave(a,b)
+# ave(a,b)
 為第a-b天到第a天的收盤價平均值
 
-＃ EMA（a,b)
+# EMA（a,b)
 類似ave function但越近的收盤價，權重越重
 
 # DIF
