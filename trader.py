@@ -1,23 +1,12 @@
 # -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+
 
 
 train_dat = pd.read_csv("training_data.csv" ,header=None)
 train_dat = pd.read_csv("testing_data.csv" ,header=None )
 train = train_dat.values
-plt.figure()
-plt.plot()
-
-plt.plot((train[:,1]+train[:,2])/2,'-',train[:,3],linewidth=0.5)
-
-plt.savefig("/home/ebyam/AI/XXXXXXXXXXX.jpg")
 
 k=0
 price=0
@@ -26,8 +15,6 @@ def ave(a,b):
     total=0
     for x in range (a-b,a):
         total=total+train[x,3]
-    if a<b:
-        print(total/b)
     return total/b;   
 def buy2(a):
     if k< 1 and train[a-1,3]>=ave(a,15)>=ave(a,30):
@@ -73,7 +60,7 @@ for x in range (16, len(train)):
                  test[x-1]=-1    
     else:
         test[x-1]=0
-print(price,k)
+#print(price,k)
 price=0
 P=0
 hold=0
@@ -84,8 +71,8 @@ for x in range(0,len(train)-1):
     elif test[x]==-1:
         hold-=1
         P+=train[x+1,0]
-print(P,hold)    
-np.savetxt("/home/ebyam/AI/output.csv",test,fmt="%d")
+#print(P,hold)
+np.savetxt("output.csv",test,fmt="%d")
 
 
 
