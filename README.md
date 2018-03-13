@@ -1,11 +1,6 @@
 # HW1
 ---
 ＃ ave(a,b)
-def ave(a,b):
-    total=0
-    for x in range (a-b,a):
-        total=total+train[x,3]
-    return total/b;   
 為第a-b天到第a天的收盤價平均值
 
 ＃ EMA（a,b)
