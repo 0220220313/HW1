@@ -20,6 +20,7 @@
 
 
 # 備註
-買進賣出，以及各個線段皆是參考網路上股票分析的教學，並非我自己寫的
+參考的網站為https://www.ezchart.com.tw/inds.php?IND=MACD
+
 
   
