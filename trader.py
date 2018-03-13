@@ -16,14 +16,6 @@ def ave(a,b):
     for x in range (a-b,a):
         total=total+train[x,3]
     return total/b;   
-def buy2(a):
-    if k< 1 and train[a-1,3]>=ave(a,15)>=ave(a,30):
-        return 1;
-    return 0;
-def sell2(a):
-    if k>-1 and train[a-1,3]<=ave(a,15)<=ave(a,30):
-        return 1;
-    return 0;
 n=0
 m=0
 macd=np.zeros((len(train),1))
