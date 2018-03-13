@@ -9,8 +9,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-train_dat = pd.read_csv("/home/ebyam/AI/training_data.csv" ,header=None)
-train_dat = pd.read_csv("/home/ebyam/AI/testing_data.csv" ,header=None )
+train_dat = pd.read_csv("training_data.csv" ,header=None)
+train_dat = pd.read_csv("testing_data.csv" ,header=None )
 train = train_dat.values
 plt.figure()
 plt.plot()
