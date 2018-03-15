@@ -1,11 +1,25 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 import pandas as pd
+if __name__ == '__main__':
+    # You should not modify this part.
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--training',
+                       default='training_data.csv',
+                       help='input training data file name')
+    parser.add_argument('--testing',
+                        default='testing_data.csv',
+                        help='input testing data file name')
+    parser.add_argument('--output',
+                        default='output.csv',
+                        help='output file name')
+    args = parser.parse_args()
 
 
-
-train_dat = pd.read_csv("training_data.csv" ,header=None)
-train_dat = pd.read_csv("testing_data.csv" ,header=None )
+train_dat = pd.read_csv(args.training ,header=None)
+train_dat = pd.read_csv(args.testing ,header=None )
 train = train_dat.values
 
 k=0
@@ -16,6 +30,14 @@ def ave(a,b):
     for x in range (a-b,a):
         total=total+train[x,3]
     return total/b;   
+def buy2(a):
+    if k< 1 and train[a-1,3]>=ave(a,15)>=ave(a,30):
+        return 1;
+    return 0;
+def sell2(a):
+    if k>-1 and train[a-1,3]<=ave(a,15)<=ave(a,30):
+        return 1;
+    return 0;
 n=0
 m=0
 macd=np.zeros((len(train),1))
@@ -64,24 +86,10 @@ for x in range(0,len(train)-1):
         hold-=1
         P+=train[x+1,0]
 #print(P,hold)
-np.savetxt("output.csv",test,fmt="%d")
+np.savetxt(args.output,test,fmt="%d")
 
 
 
 
 
-if __name__ == '__main__':
-    # You should not modify this part.
-    import argparse
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--training',
-                       default='training_data.csv',
-                       help='input training data file name')
-    parser.add_argument('--testing',
-                        default='testing_data.csv',
-                        help='input testing data file name')
-    parser.add_argument('--output',
-                        default='output.csv',
-                        help='output file name')
-    args = parser.parse_args()
